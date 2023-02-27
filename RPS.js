@@ -3,30 +3,32 @@
 function getComputerChoice () {
     let randomN = Math.floor(Math.random()*3) + 1;
     if (randomN == 1) {
-        return ("Rock")
+        return ("rock")
     }
     if (randomN == 2) {
-        return ("Paper")
+        return ("paper")
     }
     if (randomN == 3) {
-        return ("Scissors")
+        return ("scissors")
     }
 }
 
 function playerSelection () {
     let userChoice = prompt("R/P/S?");
+    let tempuserChoice = userChoice.toLowerCase()
     // let userChoice = "Rock"
-    if (userChoice != "Rock" & userChoice != "Paper" & userChoice != "Scissors") {
+    if (tempuserChoice != "rock" & tempuserChoice != "paper" & tempuserChoice != "scissors") {
+        console.log(tempuserChoice)
         console.log("error")
         }
-    return userChoice
+    return tempuserChoice
 }
 
 function playRound (playerchoice, computerChoice) {
     if (playerchoice == computerChoice) {
         return ("TIE both picked " + computerChoice)
     }
-    else if ((playerchoice == "Rock" & computerChoice == "Paper") | (playerchoice == "Paper" & computerChoice == "Scissors") | (playerchoice == "Scissors" & computerChoice == "Rock")) {
+    else if ((playerchoice == "rock" & computerChoice == "paper") | (playerchoice == "paper" & computerChoice == "scissors") | (playerchoice == "scissors" & computerChoice == "rock")) {
         computerWins++
         return ("You lose " + computerChoice +" beats " + playerchoice)
     }
@@ -37,12 +39,14 @@ function playRound (playerchoice, computerChoice) {
 }
 
 function Game () {
+    playerWins = 0;
+    computerWins = 0;
     for (let i = 0; i < 5; i++)
     {
         let result = playRound(playerSelection(), getComputerChoice());
         console.log(result);
     }
-    console.log(playerWins, computerWins)
+    console.log("Final score, you: " + playerWins + " computer: " + computerWins)
 }
 
 let playerWins = 0;
