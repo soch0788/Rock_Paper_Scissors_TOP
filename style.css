@@ -1,0 +1,22 @@
+.win {
+    background-color: green;
+}
+.lose {
+    background-color: red;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.play {
+    display: flex;
+}
+
+.text{ 
+    height: 10%;
+}
